@@ -20,5 +20,5 @@ def ws_disconnect(message):
 
 
 # consumers.py
-def hello(message):
-    print("Hello, Channels!")  # long running task or printing
+def hello_10(message):
+    print("Hello, Channels!, 10")  # long running task or printing 10

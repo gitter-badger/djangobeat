@@ -1,6 +1,8 @@
+# As of now only one event is supporting
+
 DJANGOBEAT_SCHEDULE = {
-    'add-every-30-seconds': {
-        'schedule': 5,
-        'channel': 'background-hello'
+    'add-every-10-seconds': {
+        'schedule': 10,
+        'channel': 'background-10'
     },
 }

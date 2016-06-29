@@ -25,6 +25,7 @@ class Scheduler(object):
                     time.sleep(schedule)
         try:
             myThread = UpdateThread()
+            myThread.daemon = True
             myThread.start()
         except (KeyboardInterrupt, SystemExit):
             print '\n! Received keyboard interrupt, quitting threads.\n'
