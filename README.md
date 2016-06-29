@@ -2,8 +2,8 @@
 
 Periodic Tasks for Django channels
 
-Installation:
-============
+### Installation: ###
+
 
 	pip install -U djangobeat
 
