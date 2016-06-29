@@ -22,9 +22,6 @@ Periodic Tasks for Django channels
 
 	# In routing.py
 	channel_routing = [
-	    route("websocket.connect", ws_add),
-	    route("websocket.receive", ws_message),
-	    route("websocket.disconnect", ws_disconnect),
 	    route('background-hello', hello), # your beat
 	]
 
