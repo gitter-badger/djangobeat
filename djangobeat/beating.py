@@ -5,13 +5,19 @@ from djangobeat import scheduler
 
 
 class Beater(object):
+    """
+    Beater is the main object has the extract the information from configs
+    """
+
     def config(self):
+        # extract CHANNEL_LAYERS
         return getattr(settings, "CHANNEL_LAYERS", {})
 
     def get_beat_config(self):
         return self.config()['default']['BEAT']
 
     def get_tasks(self):
+        # GET the TASK defined there
         beat_config = self.get_beat_config()
         if isinstance(beat_config, six.string_types):
             module_name, variable_name = beat_config.rsplit(".", 1)

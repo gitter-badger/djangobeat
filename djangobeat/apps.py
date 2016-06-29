@@ -9,4 +9,4 @@ class DjangoBeatConfig(AppConfig):
 
     def ready(self):
         instance = beating.Beater()
-        print instance.main()
+        instance.main()
