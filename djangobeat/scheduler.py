@@ -5,30 +5,26 @@ from threading import Thread
 
 
 class Scheduler(object):
+    """
+    scheduler have the advantage of the sched and thread module. Instance will
+    run the run_task command and inside the UpdateThread will repeat the
+    process continuously
+    """
 
     s = sched.scheduler(time.time, time.sleep)
 
     def run_task(self, schedule, which_channel):
-        # Timer(schedule, self.push_command, [schedule, which_channel, ]).start()
-        # self.s.enter(schedule, 1, self.push_command, [which_channel])
-        # self.s.run()
-
-        #  new here
         class UpdateThread(Thread):
             def __init__(self):
                 self.stopped = False
-                Thread.__init__(self) # Call the super construcor (Thread's one)
+                Thread.__init__(self)
 
             def run(self):
                 while not self.stopped:
                     Channel(which_channel).send({})
-                    # self.push_command(schedule, which_channel)
                     time.sleep(schedule)
-
-        myThread = UpdateThread()
-        myThread.start()
-
-
-    # def push_command(self, schedule, which_channel):
-    #     print which_channel
-    #     Channel(which_channel).send({})
+        try:
+            myThread = UpdateThread()
+            myThread.start()
+        except (KeyboardInterrupt, SystemExit):
+            print '\n! Received keyboard interrupt, quitting threads.\n'
