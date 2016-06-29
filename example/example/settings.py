@@ -126,10 +126,7 @@ STATIC_URL = '/static/'
 # In settings.py
 CHANNEL_LAYERS = {
     "default": {
-        "BACKEND": "asgi_redis.RedisChannelLayer",
-        "CONFIG": {
-            "hosts": [("localhost", 6379)],
-        },
+        "BACKEND": "asgiref.inmemory.ChannelLayer",
         "ROUTING": "example.routing.channel_routing",
         "BEAT": "example.beatconfig.DJANGOBEAT_SCHEDULE"
     },
