@@ -6,8 +6,7 @@ Installation:
 	pip install -U djangobeat
 
 
-How to setup:
-=============
+### How to setup: ###
 
 	# In settings.py
 	CHANNEL_LAYERS = {
