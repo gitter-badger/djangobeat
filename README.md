@@ -8,7 +8,7 @@ Periodic Tasks for Django channels
 	pip install -U djangobeat
 
 
-### How to setup: ###
+### Settings & Declaration: ###
 
 	# In settings.py
 	CHANNEL_LAYERS = {
@@ -28,3 +28,15 @@ Periodic Tasks for Django channels
 	# consumers.py
 	def hello(message):
 	    print("Hello, Channels!")  # your beat
+	    
+	    
+### Beat Config ###
+you should create beatconfig.py in your project root
+
+	DJANGOBEAT_SCHEDULE = {
+	    'add-every-30-seconds': {
+	        'schedule': 5,
+	        'channel': 'background-hello'
+	    },
+	}
+
