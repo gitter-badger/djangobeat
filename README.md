@@ -1,5 +1,7 @@
 # djangobeat
 
+Periodic Tasks for Django channels
+
 Installation:
 ============
 
