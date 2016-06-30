@@ -5,4 +5,8 @@ DJANGOBEAT_SCHEDULE = {
         'schedule': 10,
         'channel': 'background-10'
     },
+    'add-every-30-seconds': {
+        'schedule': 30,
+        'channel': 'background-30'
+    },
 }
