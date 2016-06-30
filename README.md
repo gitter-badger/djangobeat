@@ -35,3 +35,5 @@ you should create beatconfig.py in your project root
 	    },
 	}
 
+
+Note: beta software lot of things not work
