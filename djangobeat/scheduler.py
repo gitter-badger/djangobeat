@@ -1,31 +1,17 @@
-import sched
 import time
+# import datetime
+import threading
 from channels import Channel
-from threading import Thread
 
 
-class Scheduler(object):
-    """
-    scheduler have the advantage of the sched and thread module. Instance will
-    run the run_task command and inside the UpdateThread will repeat the
-    process continuously
-    """
+def scheduler(schedule, which_channel):
+    while True:
+        Channel(which_channel).send({})
+        time.sleep(schedule)
 
-    s = sched.scheduler(time.time, time.sleep)
 
-    def run_task(self, schedule, which_channel):
-        class UpdateThread(Thread):
-            def __init__(self):
-                self.stopped = False
-                Thread.__init__(self)
-
-            def run(self):
-                while not self.stopped:
-                    Channel(which_channel).send({})
-                    time.sleep(schedule)
-        try:
-            myThread = UpdateThread()
-            myThread.daemon = True
-            myThread.start()
-        except (KeyboardInterrupt, SystemExit):
-            print '\n! Received keyboard interrupt, quitting threads.\n'
+def agent(schedule, which_channel):
+    timerThread = threading.Thread(
+        target=scheduler, args=[schedule, which_channel, ])
+    timerThread.daemon = True
+    timerThread.start()
