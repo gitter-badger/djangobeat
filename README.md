@@ -38,6 +38,3 @@ you should create beatconfig.py in your project root
 	        'channel': 'background-hello'
 	    },
 	}
-
-
-Note: beta software lot of things not work
