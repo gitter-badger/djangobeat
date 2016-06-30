@@ -3,13 +3,14 @@
 Periodic Tasks for Django channels
 
 
-### Installation ###
+### Installation
 
 	pip install -U DjangoBeat
+	
+### Settings
 
-### Settings & Declaration: ###
+    INSTALLED_APPS += ['djangobeat']
 
-	# In settings.py
 	CHANNEL_LAYERS = {
 	    "default": {
 	        "BACKEND": "asgiref.inmemory.ChannelLayer",
@@ -18,15 +19,6 @@ Periodic Tasks for Django channels
 	    },
 	}
 
-
-	# In routing.py
-	channel_routing = [
-	    route('background-hello', hello), # your beat
-	]
-
-	# consumers.py
-	def hello(message):
-	    print("Hello, Channels!")  # your beat
 	    
 	    
 ### Beat Config ###
