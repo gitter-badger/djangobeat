@@ -1,7 +1,7 @@
 import importlib
 from django.utils import six
 from django.conf import settings
-from djangobeat import scheduler
+from scheduler import agent
 
 
 class Beater(object):
@@ -29,5 +29,4 @@ class Beater(object):
         for task in self.get_tasks():
             which_channel = all_task[task]['channel']
             schedule = all_task[task]['schedule']
-            schedular_instance = scheduler.Scheduler()
-            schedular_instance.run_task(schedule, which_channel)
+            agent(schedule, which_channel)
