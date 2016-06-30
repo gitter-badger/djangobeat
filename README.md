@@ -3,6 +3,10 @@
 Periodic Tasks for Django channels
 
 
+### Installation ###
+
+	pip install -U DjangoBeat
+
 ### Settings & Declaration: ###
 
 	# In settings.py
