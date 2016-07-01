@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'landing',
     'channels',
     'djangobeat'
 ]
@@ -128,6 +127,5 @@ CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "asgiref.inmemory.ChannelLayer",
         "ROUTING": "example.routing.channel_routing",
-        "BEAT": "example.beatconfig.DJANGOBEAT_SCHEDULE"
     },
 }

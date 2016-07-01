@@ -4,14 +4,14 @@ import threading
 from channels import Channel
 
 
-def scheduler(schedule, which_channel):
+def scheduler(schedule, channel_name):
     while True:
-        Channel(which_channel).send({})
+        Channel(channel_name).send({})
         time.sleep(schedule)
 
 
-def agent(schedule, which_channel):
+def agent(schedule, channel_name):
     timerThread = threading.Thread(
-        target=scheduler, args=[schedule, which_channel, ])
+        target=scheduler, args=[schedule, channel_name, ])
     timerThread.daemon = True
     timerThread.start()
