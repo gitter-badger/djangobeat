@@ -6,6 +6,9 @@ Periodic Tasks for Django channels
 ### Installation
 
     pip install -U DjangoBeat
+
+It's is important that you have to run --noreload option otherwise it will executed twice
+
     
 ### Settings
 
