@@ -1,17 +1,22 @@
 import time
-# import datetime
 import threading
 from channels import Channel
 
 
-def scheduler(schedule, channel_name):
-    while True:
-        Channel(channel_name).send({})
-        time.sleep(schedule)
+class Scheduler(object):
 
+    def __init__(self, schedule, channel_name):
+        self.schedule = schedule
+        self.channel_name = channel_name
 
-def agent(schedule, channel_name):
-    timerThread = threading.Thread(
-        target=scheduler, args=[schedule, channel_name, ])
-    timerThread.daemon = True
-    timerThread.start()
+    def trigger(self):
+        while True:
+            Channel(self.channel_name).send({})
+            time.sleep(self.schedule.total_seconds())
+
+    def agent(self):
+        # old code ref, args=[self.schedule, self.channel_name, ]
+        timerThread = threading.Thread(
+            target=self.trigger)
+        timerThread.daemon = True
+        timerThread.start()
