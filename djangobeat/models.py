@@ -4,7 +4,7 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 # schedular config
-from scheduler import agent
+from scheduler import Scheduler
 
 
 class PeriodicTask(models.Model):
@@ -19,4 +19,5 @@ class PeriodicTask(models.Model):
 @receiver(post_save, sender=PeriodicTask)
 def post_handler(sender, **kwargs):
     instance = kwargs['instance']
-    agent(instance.schedule.total_seconds(), instance.channel_name)
+    sche = Scheduler(instance.schedule, instance.channel_name)
+    sche.agent()
