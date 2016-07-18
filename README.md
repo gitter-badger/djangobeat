@@ -1,5 +1,7 @@
 # djangobeat
 
+[![Join the chat at https://gitter.im/rajasimon/djangobeat](https://badges.gitter.im/rajasimon/djangobeat.svg)](https://gitter.im/rajasimon/djangobeat?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Periodic Tasks for Django channels
 
 
